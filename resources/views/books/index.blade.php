@@ -14,6 +14,6 @@
     {!! $books->render() !!}
     @endif
     {!! link_to_route('books.create', '新規作成') !!}
-
+    <a href="{{ url('/') }}">トップに戻る</a>
 
 @endsection

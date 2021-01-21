@@ -14,5 +14,6 @@
 {!! Form::close() !!}
 
 <p>{!! link_to_route('signup.get', '新規ユーザー登録') !!}</p>
+<a href="{{ url('/') }}">戻る</a>
 
 @endsection

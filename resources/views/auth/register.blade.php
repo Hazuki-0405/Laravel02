@@ -27,6 +27,7 @@
   @endif
   {!! Form::submit('登録') !!}
 {!! Form::close() !!}
+<a href="{{ url('/') }}">戻る</a>
 
 
 @endsection
