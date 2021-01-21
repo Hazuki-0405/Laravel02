@@ -3,9 +3,14 @@ body {
   padding: 0;
   font-size: 16px;
   color: #fff;
+  background: gray;
 }
 
 a {
+  color: #fff;
+}
+
+.book-list a, .container > a {
   font-size: 12px;
   color: gray;
   display: inline-block;
@@ -28,6 +33,10 @@ li {
 
 .container {
   padding: 20px 100px;
-  background: gray;
-  height: 100vh;
+}
+
+.pagination {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
 }
