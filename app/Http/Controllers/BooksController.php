@@ -56,7 +56,4 @@ class BooksController extends Controller
         return redirect('/books');
     }
 
-    public function showFavorites() {
-        return view('books.showFavorites');
-    }
 }
