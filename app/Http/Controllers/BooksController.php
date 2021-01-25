@@ -48,12 +48,12 @@ class BooksController extends Controller
         $book->save();
         return redirect('/books');
     }
-    
+
+    // データ削除アクション
     public function destroy($id) {
         $book = Book::find($id);
         $book->delete();
 
         return redirect('/books');
     }
-
 }

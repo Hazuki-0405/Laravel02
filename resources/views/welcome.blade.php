@@ -4,7 +4,7 @@
 @if (Auth::check())
 <?php $user = Auth::user() ?>
     <h1>{{ $user->name }}さんのマイページ</h1>
-    <p>{!! link_to_route('books.showFavorites', 'お気に入り一覧') !!}</p>
+    <p>{!! link_to_route('books.indexFavorites', 'お気に入り一覧') !!}</p>
     <p>{!! link_to_route('books.index', '本の一覧を見る') !!}</p>
     <p>{!! link_to_route('logout.get', 'ログアウト') !!}</p>
 @else

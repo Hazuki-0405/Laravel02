@@ -34,7 +34,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('books', 'BooksController@index')->name('books.index'); //一覧ページ表示
     Route::get('books/{id}/edit', 'BooksController@edit')->name('books.edit'); //更新ページ表示
     
-    Route::get('favorites', 'FavoritesController@showFavorites')->name('books.showFavorites');
+    Route::get('favorites', 'FavoritesController@indexFavorites')->name('books.indexFavorites');
+    Route::patch('books/{id}', 'FavoritesController@favorite')->name('books.favorite');
+    Route::patch('favorites/{id}', 'FavoritesController@unfavorite')->name('books.unfavorite');
 });
 
 // Route::get('books/create', 'BooksController@create')->name('books.create'); //新規作成ページ表示

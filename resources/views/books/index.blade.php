@@ -7,7 +7,7 @@
       @foreach ($books as $book)
       <li>
         {!! link_to_route('books.show', $book->id, ['id' => $book->id]) !!}
-        {{ $book->book_title }}
+        <p>{{ $book->book_title }}</p>
       </li>
       @endforeach
     </ul>
