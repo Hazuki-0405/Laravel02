@@ -20,26 +20,24 @@ class FavoritesController extends Controller
     }
 
     public function favorite($book_id) { //単数形
-        $user = Auth::user();
         $is_favorite = $this->is_favorite($book_id);
-        $exist = $user->$is_favorite; //引数に入っている本がお気に入りに入っているかどうか
-        if ($exist){
-            return redirect('/favorites'); //すでにお気に入りに入ってたらfalseを返す
+        $user = Auth::user();
+        if ($is_favorite){
+            return redirect('/favorites'); //すでにお気に入りに入ってたら何もしない
         } else {
-            $user->favorites()->attach($book_id);  //お気に入りに入ってなかったらお気に入りに入れて、trueを返す
-            return redirect('/');
+            $user->favorites()->attach($book_id);  //お気に入りに入ってなかったらお気に入りに入れて、お気に入り一覧を表示
+            return redirect('/favorites');
         }
     }
 
     public function unfavorite($book_id) { //単数形
+        $is_favorite = $this->is_favorite($book_id); //お気に入りに入っているかどうか
         $user = Auth::user();
-        $is_favorite = $this->is_favorite($book_id);
-        $exist = $user->$is_favorite; //引数に入っている本がお気に入りに入っているかどうか
-        if($exist){
-            $user->favorites()->detach($book_id);  //お気に入りに入ってたらお気に入りから消して、trueを返す
+        if($is_favorite){
+            $user->favorites()->detach($book_id);  //お気に入りに入ってたらお気に入りから消して、お気に入り一覧を表示
             return redirect('/favorites');
         } else {
-            return redirect('/'); //お気に入りに入ってなかったらfalseを返す
+            return redirect('/favorites'); //お気に入りに入ってなかったら何もしない
         }
     }
 }
